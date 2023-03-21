@@ -1,0 +1,65 @@
+import java.util.Scanner;
+import java.util.Random;
+
+public class RockPaperScissors
+{
+   public static void main(String[] args)
+   {
+      Random rnd = new Random();
+      int computerChoiceInt = rnd.nextInt(3);
+      String computerChoice = "";
+      if(computerChoiceInt == 0)
+      {
+         computerChoice = "R";
+      }
+      else if(computerChoiceInt == 1)
+      {
+         computerChoice = "P";
+      }
+      else
+      {
+         computerChoice = "S";
+      }
+      Scanner scan = new Scanner(System.in);
+      System.out.println("Enter R, P, or S");
+      String userChoice = scan.nextLine();
+      
+      if(!userChoice.equals("R") && !userChoice.equals("P") && !userChoice.equals("S"))
+      {
+         System.out.println("Invalid input. Game over.");
+         return;
+      }
+      
+      System.out.printf("You chose %s. The computer chose %s.", userChoice, computerChoice);
+      
+      if(userChoice.equals(computerChoice))
+      {
+         System.out.println("It's a tie.");
+      }
+      else if(userChoice.equals("R") && computerChoice.equals("P"))
+      {
+         System.out.println("Paper covers rock. Computer wins.");
+      }
+      else if(userChoice.equals("R") && computerChoice.equals("S"))
+      {
+         System.out.println("Rock breaks scissors.");
+      }
+      else if(userChoice.equals("P") && computerChoice.equals("R"))
+      {
+         System.out.println("Paper covers rock. You win.");
+      }
+      else if(userChoice.equals("P") && computerChoice.equals("S"))
+      {
+         System.out.println("Scissors cut paper. Computer wins.");
+      }
+      else if(userChoice.equals("S") && computerChoice.equals("P"))
+      {
+         System.out.println("Scissors cuts paper. You win");
+      }
+      else if(userChoice.equals("S") && computerChoice.equals("R"))
+      {
+         System.out.println("Rock breaks scissors. Computer wins.");
+      }
+      
+   }
+}
